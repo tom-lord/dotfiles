@@ -54,6 +54,8 @@ a rpmqa='rpm -qa | grep'
 a rpmqai='rpm -qa | grep -i'
 a go='function e { if [ -f $1 ]; then vim $1; elif [ -d $1 ]; then cd $1; else echo "ERROR: File/directory does not exist!"; fi }; e $1'
 a mkcd='function e { mkdir -p $1 && cd $1; }; e $1'
+a fuck='killall -9'
+a be='bundle exec'
 function calc() { echo $1 | bc -l; }
 a whatarethecolours='for i in {0..8}; do tput setaf $i; echo -n $i; done; tput setaf 0; echo'
 function xargsvim() { shift 1; xargs bash -c '</dev/tty vim "$@"'; }
