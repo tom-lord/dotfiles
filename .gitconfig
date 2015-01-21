@@ -1,0 +1,26 @@
+[user]
+  email = tom.lord@comlaude.com
+  name = Tom Lord
+
+[alias]
+  s  = status -s
+  co = checkout
+  cob = checkout -b
+  a = add .
+  b = branch
+  # List branches sorted by last modified. Print the top line (current branch, probably) in green. "Branch History"
+  bh  = "!GREEN='\\033[0;32m'; CLEAR='\\033[0m'; git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e \"1 s/.*/`echo $GREEN`&`echo $CLEAR`/\""
+  d = diff
+  lol = log --pretty=oneline --abbrev-commit --graph --decorate
+  pm = pull origin master
+  mm = merge master
+  # List aliases (Yo dawg...)
+  alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ / | sort
+  caa = commit -a --amend -C HEAD
+
+[push]
+  default = simple
+
+[core]
+  editor = vim
+  mergeoptions = --no-edit   # http://bit.ly/1FqbQHA
