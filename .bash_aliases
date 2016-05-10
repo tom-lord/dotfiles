@@ -21,7 +21,7 @@ export EDITOR=vim
 export P4DIFF=colordiff # Note: Must have colordiff installed!!
 # Customise/prettify the command prompt
 export PROMPT_COMMAND='result=$?; if [ $result = 0 ]; then symbol="☺"; colour=2; elif [ $result = 1 -o $result = 130 ]; then symbol="○"; colour=3; else symbol="☻"; colour=1; fi;\
-PS1="\[$(tput setaf `echo \$colour`)\]\$symbol\
+PS1="\[$(tput setaf `echo \$colour`)\]\$symbol \
 \[$(tput setaf 5)\][\[$(tput setaf `if [[ $UID = 0 ]]; then echo 1; else echo 4; fi`)\]\u@\h\
 \[$(tput setaf 5)\] \W \[$(tput setaf 3)\]`echo $(__git_ps1) | cut -c 2-7`\[$(tput setaf 5)\]]> \[$(tput sgr0)\]"'
 set -o vi
