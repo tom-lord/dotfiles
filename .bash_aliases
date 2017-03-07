@@ -1,4 +1,4 @@
-# .bashrc
+# .bash_aliases / .bashrc, depending on system
 
 function source_if_exists()
 {
@@ -21,9 +21,9 @@ export EDITOR=vim
 export P4DIFF=colordiff # Note: Must have colordiff installed!!
 # Customise/prettify the command prompt
 export PROMPT_COMMAND='result=$?; if [ $result = 0 ]; then symbol="☺"; colour=2; elif [ $result = 1 -o $result = 130 ]; then symbol="○"; colour=3; else symbol="☻"; colour=1; fi;\
-PS1="\[$(tput setaf `echo \$colour`)\]\$symbol \
+PS1="\[$(tput setaf `echo \$colour`)\]\$symbol\
 \[$(tput setaf 5)\][\[$(tput setaf `if [[ $UID = 0 ]]; then echo 1; else echo 4; fi`)\]\u@\h\
-\[$(tput setaf 5)\] \W \[$(tput setaf 3)\]`echo $(__git_ps1) | cut -c 2-7`\[$(tput setaf 5)\]]> \[$(tput sgr0)\]"'
+\[$(tput setaf 5)\] \W \[$(tput setaf 3)\]`echo $(__git_ps1) | tr -d "()" | cut -c 1-6`\[$(tput setaf 5)\]]> \[$(tput sgr0)\]"'
 set -o vi
 set show-all-if-ambiguous on
 set completion-ignore-case on
@@ -31,9 +31,35 @@ set completion-ignore-case on
 # Handy shortcuts/functions
 a p='pwd'
 a c='clear'
-a g='grep -rn'
-a gi='grep -rni'
-a f='find . | grep'
+# zxcvbn is excluded as this is a JS library in some of my projects,
+# which contains a whole dictionary (!!!) so *always* pops up in grep results
+a g='grep -rn --exclude=zxcvbn*'
+function gi()
+{
+  if [ "${#1}" -eq 1 ] ; then
+    # Stop myself from spamming output by entering commands like "gi s" instead of "git s"
+    case "$1" in
+      a) git a ;;
+      b) git b ;;
+      d) git d ;;
+      l) git l ;;
+      s) git s ;;
+      *) echo "Do I really want to grep for 1 letter?! Probably not. Try again." ;;
+    esac
+  else
+    grep -rni --exclude=zxcvbn* "$1" $2
+  fi
+}
+function f()
+{
+  if [ $# -eq 0 ]; then
+    echo "Usage: \`f [dir = .] pattern\` -- Please specify a pattern"
+  elif [ $# -eq 1 ]; then
+    find . | grep $1
+  else
+    find $1 | grep $2
+  fi
+}
 a diff='colordiff' # Note: Must have colordiff installed!!
 a h='history'
 a j='jobs -l'
@@ -85,7 +111,8 @@ function extract()
   fi
 }
 a agi='sudo apt-get install'
-a recreate_database='rake db:drop && rake db:create && rake db:hstoreize'
+# a recreate_database='rake db:drop && rake db:create && rake db:hstoreize'
+a recreate_database='rake db:drop && rake db:create'
 
 # Default additional options for commands
 # Warning: These all "overload" some default behaviour!

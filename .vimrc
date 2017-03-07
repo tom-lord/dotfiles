@@ -49,13 +49,13 @@ Plugin 'tpope/vim-surround'
 Plugin 'bronson/vim-visual-star-search'
 
 " Display indent level
-Plugin 'nathanaelkane/vim-indent-guides'
-
-
+Plugin 'Yggdroot/indentLine'
+" I used to use this one instead, but found it made my cursor disappear
+" sometimes, which was annoying!
+" Plugin 'nathanaelkane/vim-indent-guides'
 
 
 " The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
 "" plugin on GitHub repo
 "Plugin 'tpope/vim-fugitive'
 "" plugin from http://vim-scripts.org/vim/scripts.html
@@ -89,10 +89,10 @@ let g:syntastic_style_error_symbol = ">"
 let g:syntastic_warning_symbol = "!"
 let g:syntastic_style_warning_symbol = ">"
 
-" Indent-Guide config
-let g:indent_guides_enable_on_vim_startup = 1 " 1=enable, 0=disable
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
+" indentLine config
+" let g:indentLine_char = '┆' " Some alternatives: ¦ ┆ ︙ │ ︙ - but beware of UTF8-weirdness!
+
+colorscheme desert
 
 " Stop vim from saving .<filename>.swp files - they only get in the way!
 set noswapfile
@@ -153,7 +153,6 @@ set lazyredraw
 set magic
 set showmatch
 set mat=2
-colorscheme desert
 set encoding=utf8
 set ffs=unix,dos,mac
 set expandtab
@@ -169,6 +168,14 @@ set laststatus=2
 cmap w!! w !sudo tee > /dev/null %
 set errorformat=""
 nnoremap <F5> :ls<CR>:e<Space>#
+
+let mapleader = ","
+
+" Shortcut to toggle spelling on/off, with `,s`
+nmap <silent> <leader>s :set spell!<CR>
+
+" Set region to British English (for spelling)
+set spelllang=en_gb
 
 " Stronger encryption algorithm than the default ("zip"). To encrypt, use :X
 set cm=blowfish

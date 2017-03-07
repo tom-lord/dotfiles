@@ -1,6 +1,6 @@
 [user]
-  email = tom.lord@comlaude.com
-  name = Tom Lord
+	email = tom.lord@comlaude.com
+	name = Tom Lord
 
 [alias]
   s  = status -s
@@ -9,14 +9,28 @@
   a = add .
   b = branch
   # List branches sorted by last modified. Print the top line (current branch, probably) in green. "Branch History"
-  bh  = "!GREEN='\\033[0;32m'; CLEAR='\\033[0m'; git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e \"1 s/.*/`echo $GREEN`&`echo $CLEAR`/\""
+  bh  = "!GREEN='\\033[0;32m'; CLEAR='\\033[0m'; git for-each-ref --count 20 --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e \"1 s/.*/`echo $GREEN`&`echo $CLEAR`/\""
   d = diff
-  lol = log --pretty=oneline --abbrev-commit --graph --decorate
+  loggraph = log --pretty=oneline --abbrev-commit --graph --decorate
+  l = log --color --pretty=format:\"%C(yellow)%h%C(reset) %s%C(bold red)%d%C(reset) %C(green)%ad%C(reset) %C(blue)[%an]%C(reset)\" --relative-date --decorate
   pm = pull origin master
   mm = merge master
-  # List aliases (Yo dawg...)
-  alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ / | sort
+  praise = blame # Much more politically correct
   caa = commit -a --amend -C HEAD
+  unstage = reset HEAD --
+  restore = checkout --
+
+  # Useage: `git squash <X>`
+  # This will squash the last X commits into a single commit, with a concatenated message.
+  # There are several variant approaches that could be used - for example:
+  # If you just want to squash a BRANCH, use: `git merge --squash <branch-name>`
+  # If you want to use a different commit message to this, consider using `git commit --amend`
+  # For mor complicated history rewriting, use `git rebase -i`
+  # ... But it's typically a BAD IDEA to do any of this on pushed commits!!! (`git push -f` will be needed)
+  squash = "!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f"
+
+  # List aliases (Yo dawg...)
+	alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ / | sort
 
 [push]
   default = simple
