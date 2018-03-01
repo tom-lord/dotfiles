@@ -1,0 +1,71 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/n0/rv8zshps4jnd8qk7dr32yl2w0000gn/T/d-117628-5437-1id706i.do3eib2o6r/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/n0/rv8zshps4jnd8qk7dr32yl2w0000gn/T/d-117628-5437-1id706i.do3eib2o6r/package.tgz",
+        "spec": "/private/var/folders/n0/rv8zshps4jnd8qk7dr32yl2w0000gn/T/d-117628-5437-1id706i.do3eib2o6r/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/n0/rv8zshps4jnd8qk7dr32yl2w0000gn/T/apm-install-dir-117628-5437-1fhdfyg.e1li8uxr"
+    ]
+  ],
+  "_from": "../d-117628-5437-1id706i.do3eib2o6r/package.tgz",
+  "_id": "ruby-block-converter@4.0.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/ruby-block-converter",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/n0/rv8zshps4jnd8qk7dr32yl2w0000gn/T/d-117628-5437-1id706i.do3eib2o6r/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/n0/rv8zshps4jnd8qk7dr32yl2w0000gn/T/d-117628-5437-1id706i.do3eib2o6r/package.tgz",
+    "spec": "/private/var/folders/n0/rv8zshps4jnd8qk7dr32yl2w0000gn/T/d-117628-5437-1id706i.do3eib2o6r/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-117628-5437-1id706i.do3eib2o6r/package.tgz",
+  "_shasum": "3b114a8f30736628dcfc7e1f8473f758311cb25f",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/n0/rv8zshps4jnd8qk7dr32yl2w0000gn/T/d-117628-5437-1id706i.do3eib2o6r/package.tgz",
+  "_where": "/private/var/folders/n0/rv8zshps4jnd8qk7dr32yl2w0000gn/T/apm-install-dir-117628-5437-1fhdfyg.e1li8uxr",
+  "activationCommands": {},
+  "bugs": {
+    "url": "https://github.com/dsandstrom/atom-ruby-block-converter/issues"
+  },
+  "dependencies": {},
+  "description": "Convert Ruby blocks between {} and do-end formats",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">0.168.0"
+  },
+  "homepage": "https://github.com/dsandstrom/atom-ruby-block-converter#readme",
+  "keywords": [
+    "ruby",
+    "ruby on rails",
+    "format"
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/dsandstrom/atom-ruby-block-converter/raw/master/LICENSE.md"
+    }
+  ],
+  "main": "./lib/main",
+  "name": "ruby-block-converter",
+  "optionalDependencies": {},
+  "readme": "# Ruby Block Converter\n###### An Atom Package - [Atom.io](https://atom.io/packages/ruby-block-converter) : [Github](https://github.com/dsandstrom/atom-ruby-block-converter)\n[![Build Status](https://travis-ci.org/dsandstrom/atom-ruby-block-converter.svg?branch=master)](https://travis-ci.org/dsandstrom/atom-ruby-block-converter)\n\nConvert Ruby blocks between single line and multi line formats. Or between curly brackets and do-end statements.\n\n![Screenshot](https://github.com/dsandstrom/atom-ruby-block-converter/raw/master/screen-1.gif) ![Screenshot](https://github.com/dsandstrom/atom-ruby-block-converter/raw/master/screen-2.gif)\n\n### Instructions\n###### *{ } => do-end*\n\nPlace the cursor in between the brackets and hit the shortcut.\n\n|                 | macOS        | Linux/Win |\n|:----------------|:-------------|:----------|\n| Normal          | `ctrl-}`     | `alt-]`   |\n| Without joining | `ctrl-alt-}` | `alt-}`   |\n\n###### *do-end => { }*\n\nPlace the cursor in between the do-end and hit the shortcut.\n\n|                  | macOS        | Linux/Win |\n|:-----------------|:-------------|:----------|\n| Normal           | `ctrl-{`     | `alt-[`   |\n| Without collapse | `ctrl-alt-{` | `alt-{`   |\n\n### Features\n* Hashes and string interpolation are ignored\n* RSpec blocks are honored.\n* There are separate commands if you don't want the block to collapse or join\n\n### How It Works\n* It looks for the first starting block on the current line, then up. Upon success, it looks right, then down for a matching } or end.\n* When there is a block with only one line of code: the curly converter will join the block onto one line; the do-end converter will separate the three lines and then auto-tab.\n* It will only try up or down 6 lines, but this configurable in your settings.\n\n### Commands\n```coffee\n'ruby-block-converter:to-curly-brackets'\n'ruby-block-converter:to-curly-brackets-without-collapse'\n'ruby-block-converter:to-do-end'\n'ruby-block-converter:to-do-end-without-join'\n```\n\n### Notes\n* Version 4.0.0 introduces changes to the macOS keymaps\n\n### Thanks\nInspired by the Sublime Text [Ruby Block Converter](https://github.com/irohiroki/RubyBlockConverter) by [irohiroki](https://github.com/irohiroki).\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dsandstrom/atom-ruby-block-converter.git"
+  },
+  "version": "4.0.1"
+}

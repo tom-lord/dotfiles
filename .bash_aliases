@@ -152,6 +152,20 @@ function x() # Copy the output of any command to the clipboard, e.g. `x pwd`
   command echo -ne `$@` | tee >(xclip -i); echo
 }
 
+function git-cleanup-branches()
+{
+  git fetch --all > /dev/null
+  # Remove remote branches that do not exist any more
+  git remote prune origin
+  # Delete local branches that have no remote tracking branch
+  git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d
+  # Also delete all local branches that have been merged into master
+  git branch --merged master --no-color | grep -v '^\s*\*\?\s*master$' | xargs git branch -d
+
+  echo "All local branches that have been merged to master, or the remote is deleted, have been removed"
+}
+
+
 
 # Add colour to manpages
 export LESS_TERMCAP_mb=$'\E[01;31m'

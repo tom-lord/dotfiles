@@ -1,0 +1,63 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/n0/rv8zshps4jnd8qk7dr32yl2w0000gn/T/d-117215-8203-byng8k/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/n0/rv8zshps4jnd8qk7dr32yl2w0000gn/T/d-117215-8203-byng8k/package.tgz",
+        "spec": "/private/var/folders/n0/rv8zshps4jnd8qk7dr32yl2w0000gn/T/d-117215-8203-byng8k/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/n0/rv8zshps4jnd8qk7dr32yl2w0000gn/T/apm-install-dir-117215-8203-1ftig2a"
+    ]
+  ],
+  "_from": "../d-117215-8203-byng8k/package.tgz",
+  "_id": "cucumber-step@0.2.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/cucumber-step",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/n0/rv8zshps4jnd8qk7dr32yl2w0000gn/T/d-117215-8203-byng8k/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/n0/rv8zshps4jnd8qk7dr32yl2w0000gn/T/d-117215-8203-byng8k/package.tgz",
+    "spec": "/private/var/folders/n0/rv8zshps4jnd8qk7dr32yl2w0000gn/T/d-117215-8203-byng8k/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-117215-8203-byng8k/package.tgz",
+  "_shasum": "7505e33692a84729d1eb56434653f37787a906aa",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/n0/rv8zshps4jnd8qk7dr32yl2w0000gn/T/d-117215-8203-byng8k/package.tgz",
+  "_where": "/private/var/folders/n0/rv8zshps4jnd8qk7dr32yl2w0000gn/T/apm-install-dir-117215-8203-1ftig2a",
+  "activationCommands": {
+    "atom-workspace": "cucumber-step:jump-to-step"
+  },
+  "bugs": {
+    "url": "https://github.com/gaslight/atom-cucumber-step/issues"
+  },
+  "dependencies": {},
+  "description": "Jump to step from feature",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "homepage": "https://github.com/gaslight/atom-cucumber-step#readme",
+  "license": "MIT",
+  "main": "./lib/cucumber-step",
+  "name": "cucumber-step",
+  "optionalDependencies": {},
+  "readme": "# cucumber-step package\n\nWhen in a feature file this will jump to the step definition for the current line.\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gaslight/atom-cucumber-step.git"
+  },
+  "version": "0.2.0"
+}

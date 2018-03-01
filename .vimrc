@@ -25,7 +25,8 @@ Plugin 'godlygeek/tabular'
 Plugin 'tpope/vim-rails'
 
 " Syntax checking for most languages
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
+Plugin 'vim-syntastic/syntastic'
 
 " Git wrapper, for commands like Gblame
 Plugin 'tpope/vim-fugitive'
@@ -79,15 +80,33 @@ filetype plugin indent on    " required
 " Powerline config
 let g:Powerline_stl_path_style = 'full'
 
-" Syntastic config
+"""" Syntastic config
+"""let g:syntastic_check_on_open = 1
+"""let g:syntastic_check_on_wq = 0
+"""let g:syntastic_enable_signs = 1
+"""let g:syntastic_auto_loc_list = 2
+"""let g:syntastic_error_symbol = "X"
+"""let g:syntastic_style_error_symbol = ">"
+"""let g:syntastic_warning_symbol = "!"
+"""let g:syntastic_style_warning_symbol = ">"
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_enable_signs = 1
-let g:syntastic_auto_loc_list = 2
-let g:syntastic_error_symbol = "X"
-let g:syntastic_style_error_symbol = ">"
-let g:syntastic_warning_symbol = "!"
-let g:syntastic_style_warning_symbol = ">"
+let g:syntastic_ruby_checkers = ['mri']
+
+" TODO: syntastic rubocop is annoyingly slow, partially because it's
+" syncronous
+" Upgrade to vim v8 (currently on 7) to utilise anync plugins
+" then try out: https://github.com/w0rp/ale
+
+" let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+" This doesn'twork well either, because you need to re-open the file
+" let g:syntastic_ruby_rubocop_args = "-a"
 
 " indentLine config
 " let g:indentLine_char = '┆' " Some alternatives: ¦ ┆ ︙ │ ︙ - but beware of UTF8-weirdness!

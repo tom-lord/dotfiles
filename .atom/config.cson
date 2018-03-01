@@ -1,0 +1,31 @@
+"*":
+  "atom-beautify":
+    general:
+      _analyticsUserId: "ba42a55f-184a-45be-baea-1c075edf4851"
+  "atom-package-deps":
+    ignored: []
+  core:
+    telemetryConsent: "no"
+  editor: {}
+  "exception-reporting":
+    userId: "6d82d8d9-8f25-4de3-afa5-11a15185c277"
+  "git-blame":
+    columnWidth: 313
+  "linter-ui-default":
+    panelHeight: 23
+    showPanel: true
+  "rubocop-auto-correct":
+    autoRun: true
+    correctFile: true
+  welcome:
+    showOnStartup: false
+"linter-rubocop":
+  command: "/Users/tomlord/.rbenv/shims/rubocop"
+"ruby-test":
+  cucumberAllCommand: "bundle exec cucumber --color features"
+  cucumberFileCommand: "bundle exec cucumber --color {relative_path}"
+  cucumberSingleCommand: "bundle exec cucumber --color {relative_path}:{line_number}"
+  rspecAllCommand: "bundle exec rspec --tty spec"
+  rspecFileCommand: "bundle exec rspec --tty {relative_path}"
+  rspecSingleCommand: "bundle exec rspec --tty {relative_path}:{line_number}"
+  specFramework: "rspec"

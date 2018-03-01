@@ -1,0 +1,116 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/n0/rv8zshps4jnd8qk7dr32yl2w0000gn/T/d-117628-271-1sd6dzu.ybes8gds4i/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/n0/rv8zshps4jnd8qk7dr32yl2w0000gn/T/d-117628-271-1sd6dzu.ybes8gds4i/package.tgz",
+        "spec": "/private/var/folders/n0/rv8zshps4jnd8qk7dr32yl2w0000gn/T/d-117628-271-1sd6dzu.ybes8gds4i/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/n0/rv8zshps4jnd8qk7dr32yl2w0000gn/T/apm-install-dir-117628-271-1t4b5fk.6m9hvkj4i"
+    ]
+  ],
+  "_from": "../d-117628-271-1sd6dzu.ybes8gds4i/package.tgz",
+  "_id": "linter-haml@2.0.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/linter-haml",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/n0/rv8zshps4jnd8qk7dr32yl2w0000gn/T/d-117628-271-1sd6dzu.ybes8gds4i/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/n0/rv8zshps4jnd8qk7dr32yl2w0000gn/T/d-117628-271-1sd6dzu.ybes8gds4i/package.tgz",
+    "spec": "/private/var/folders/n0/rv8zshps4jnd8qk7dr32yl2w0000gn/T/d-117628-271-1sd6dzu.ybes8gds4i/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-117628-271-1sd6dzu.ybes8gds4i/package.tgz",
+  "_shasum": "3e364309252e8405e55cd719d5b8a3d8dbd7a351",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/n0/rv8zshps4jnd8qk7dr32yl2w0000gn/T/d-117628-271-1sd6dzu.ybes8gds4i/package.tgz",
+  "_where": "/private/var/folders/n0/rv8zshps4jnd8qk7dr32yl2w0000gn/T/apm-install-dir-117628-271-1t4b5fk.6m9hvkj4i",
+  "bugs": {
+    "url": "https://github.com/AtomLinter/linter-haml/issues"
+  },
+  "configSchema": {
+    "executablePath": {
+      "default": "haml-lint",
+      "description": "Path to haml-lint executable",
+      "type": "string"
+    },
+    "globalHamlLintYmlFile": {
+      "default": "",
+      "description": "Full path to a global Haml lint file, if no other is found",
+      "type": "string"
+    }
+  },
+  "dependencies": {
+    "atom-linter": "^9.0.0",
+    "atom-package-deps": "^4.0.1",
+    "escape-html": "^1.0.3"
+  },
+  "description": "Atom linter plugin for HAML, using haml-lint",
+  "devDependencies": {
+    "eslint": "^3.16.1",
+    "eslint-config-airbnb-base": "^11.1.1",
+    "eslint-plugin-import": "^2.2.0"
+  },
+  "engines": {
+    "atom": ">=1.4.0 <2.0.0"
+  },
+  "eslintConfig": {
+    "extends": "airbnb-base",
+    "rules": {
+      "global-require": "off",
+      "import/no-unresolved": [
+        "error",
+        {
+          "ignore": [
+            "atom"
+          ]
+        }
+      ]
+    },
+    "globals": {
+      "atom": true
+    },
+    "env": {
+      "node": true
+    }
+  },
+  "homepage": "https://github.com/AtomLinter/linter-haml#readme",
+  "license": "MIT",
+  "main": "./lib/main.js",
+  "name": "linter-haml",
+  "optionalDependencies": {},
+  "package-deps": [
+    "linter",
+    "language-haml"
+  ],
+  "private": true,
+  "providedServices": {
+    "linter": {
+      "versions": {
+        "1.0.0": "provideLinter"
+      }
+    }
+  },
+  "readme": "# linter-haml\n\n[![Build Status](https://travis-ci.org/AtomLinter/linter-haml.svg?branch=master)](https://travis-ci.org/AtomLinter/linter-haml)\n\nThis linter plugin for [Linter][] provides\nan interface to [haml-lint][]. It will be\nused with files that have the \"HAML\" syntax.\n\n## Installation\n\n### Dependencies\n\nThis plugin requires a separate package to be installed to run it and provide\nan interface. If [Linter][] is not\ninstalled already, it will be installed for you to provide this.\n\nLinter-haml relies on the HAML-lint gem to perform linting. If you do not\ncurrently have HAML-lint installed, follow the instructions [here][haml-lint].\n\nAs Atom doesn't include a HAML language by default, [language-haml][]\nwill be installed for you if it isn't already. You will likely want to disable\n`language-ruby` as it will mark all files as Ruby before `language-haml`.\n\nIf you prefer an alternative to any of the above packages that are installed\nfor you, simply disable them.\n\n### Plugin installation\n```\n$ apm install linter-haml\n```\n\n## Settings\n\n`linter-haml` can be configured from Atom's Settings menu in the Packages\nsection. All available options are shown there.\n\n## Contributing\nIf you would like to contribute enhancements or fixes, please do the following:\n\n1.  Fork the plugin repository.\n2.  Hack on a separate topic branch created from the latest `master`.\n3.  Commit and push the topic branch.\n4.  Make a pull request.\n5.  welcome to the club\n\n[linter]: https://atom.io/packages/linter\n[haml-lint]: https://github.com/causes/haml-lint\n[language-haml]: https://atom.io/packages/language-haml\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AtomLinter/linter-haml.git"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "test": "apm test"
+  },
+  "version": "2.0.1"
+}
